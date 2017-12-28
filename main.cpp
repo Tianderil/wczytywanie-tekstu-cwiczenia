@@ -1,8 +1,45 @@
 #include <iostream>
-#include <cstring>
+#include <string>
 #include <limits>
 
 using namespace std;
+
+void Cwiczenie2()
+{
+    string Imie;
+    string Nazwisko;
+    int Wiek;
+
+    cout << "Podaj imie: ";
+    cin >> Imie;
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << "Podaj nazwisko: ";
+    getline(cin, Nazwisko);
+    bool Wiektrue;
+    do
+    {
+        cout << "Podaj wiek: ";
+        cin >> Wiek;
+        if (cin.good() == false)
+        {
+        Wiektrue = cin.good();
+        cout << "Blad wprowadzania danych. Sprobuj ponownie." << endl;
+        Wiek = 0;
+        }
+        else
+        Wiektrue = true;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    while (Wiektrue == false);
+
+    cout << "Twoje imie to: " << Imie << endl;
+    cout << "Twoje nazwisko to: " << Nazwisko << endl;
+    cout << "Twoj wiek to: " << Wiek << endl;
+
+
+}
 
 int main()
 {
@@ -31,6 +68,13 @@ int main()
     cout << endl << "Obiekt: " << Obiekt.c_str() << endl;
     cout << "Liczba: " << Liczba << endl;
 
+    Cwiczenie2();
+
+
 
     return 0;
 }
+
+
+
+
